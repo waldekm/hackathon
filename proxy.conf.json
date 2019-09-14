@@ -1,0 +1,17 @@
+{
+    "/api": {
+        "target": "https://4csq5ac1bf.execute-api.eu-west-1.amazonaws.com/resources/",
+        "secure": false,
+        "pathRewrite": {
+            "^/api": ""
+        },
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/media": {
+        "target": "http://dane.gov.pl/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

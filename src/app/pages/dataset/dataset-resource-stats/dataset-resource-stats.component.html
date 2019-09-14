@@ -1,0 +1,36 @@
+
+<!-- DATASET HEADER EXTENDED WITH RESOURCE DATA -->
+<div class="item-view__header-extender">
+    <div class="container">
+    </div>
+</div>
+
+
+<!-- RESOURCE DETAILS -->
+<section class="item-view__body vertical-spacing">
+    <div class="container">
+        <h2 class="heading heading--md">
+            {{ resource?.attributes?.title }}
+        </h2>
+
+        <!-- description -->
+        <div [innerHtml]="resource?.attributes?.description | sanitizeHtml"></div>
+
+
+    </div>
+
+
+    <!-- loading indicator -->
+    <div class="loader" *ngIf="isLoading"></div>
+
+</section>
+
+<section class="resource-stats">
+  <h1>Stats ({{statsCount}})</h1>
+  <div class="log-box" *ngFor="let log of statsLogs" (click)="status=!status" [ngClass]="status ? 'opened' : 'closed'">
+    <div class="log-header">{{log.insert_date}}</div>
+    <div class="log-message" *ngFor="let event of log.logs.logEvents">
+      {{event.message}}
+    </div>
+  </div>
+</section>
